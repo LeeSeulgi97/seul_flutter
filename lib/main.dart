@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seul_flutter/sort_ex/column_sort.dart';
+import 'package:seul_flutter/sort_ex/row_sort.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -42,9 +42,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Container(
+              child: OutlinedButton(
+                  onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => ColumnSort()));
+                  },
+                  child: Text('Column 정렬')
+              ),
+
             ),
+            Container(
+              child: OutlinedButton(
+                  onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => RowSort()));
+                  },
+                  child: Text('Row 정렬')
+              ),
+
+            )
           ],
         ),
       ),
